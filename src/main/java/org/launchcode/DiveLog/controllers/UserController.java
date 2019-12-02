@@ -43,10 +43,10 @@ public class UserController {
         }
 
         if (!errors.hasErrors() && passwordsMatch) {
-            return "/";
+            return "index";
         }
 
-        return "/";
+        return "index";
 
     }
 }
