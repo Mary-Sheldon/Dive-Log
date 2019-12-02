@@ -7,8 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DiveLogApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DiveLogApplication.class, args);
+
+	    SpringApplication.run(DiveLogApplication.class, args);
 	}
 
 }
-//comment

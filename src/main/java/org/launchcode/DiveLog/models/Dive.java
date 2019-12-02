@@ -10,4 +10,6 @@ public class Dive {
     @Id
     @GeneratedValue
     private int id;
+
+
 }
