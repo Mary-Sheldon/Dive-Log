@@ -9,8 +9,10 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("")
@@ -31,7 +33,7 @@ public class UserController {
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
     public String add(Model model, @ModelAttribute @Valid User user,
-                      Errors errors, String verify) {
+                      Errors errors, String verify, @RequestParam int userId) {
 
         model.addAttribute(user);
         boolean passwordsMatch = true;
@@ -44,9 +46,9 @@ public class UserController {
 
         if (!errors.hasErrors() && passwordsMatch) {
             return "index";
-        }
 
-        return "index";
+        }
+        return "redirect:";
 
     }
 }

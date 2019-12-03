@@ -23,7 +23,7 @@ public class User {
 
 
     @NotNull
-    @Size(min=5, max=10, message = "Password must be between 3 and 10 characters")
+    @Size(min=5, max=10, message = "Password must be between 5 and 10 characters")
     private String password;
 
 
