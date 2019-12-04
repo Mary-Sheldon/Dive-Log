@@ -32,23 +32,32 @@ public class UserController {
 
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
-    public String add(Model model, @ModelAttribute @Valid User user,
-                      Errors errors, String verify, @RequestParam int userId) {
+    public String addUser(Model model, @ModelAttribute @Valid User user,
+                      Errors errors, String verify, String password) {
 
         model.addAttribute(user);
-        boolean passwordsMatch = true;
-        if (user.getPassword() == null || verify == null
-                || !user.getPassword().equals(verify)) {
-            passwordsMatch = false;
-            user.setPassword("");
-            model.addAttribute("verifyError", "Passwords must match");
-        }
+       // boolean passwordsMatch = true;
+//        if (password == null || verify == null
+//                || !password.equals(verify)) {
+//            //passwordsMatch = false;
+//            user.setPassword("");
+//            model.addAttribute("verifyError", "Passwords must match");
+//        }
+//
+//        if (!errors.hasErrors()) {
+//            return "index";
+//
+//        }
+        userDao.save(user);
+        return "redirect:/dashboard";
 
-        if (!errors.hasErrors() && passwordsMatch) {
-            return "index";
+    }
 
-        }
-        return "redirect:";
+    @RequestMapping(value = "/dashboard", method = RequestMethod.GET)
+    public String displayDashboard(Model model){
+        model.addAttribute("title", "Diver Dashboard");
+        model.addAttribute("users", userDao.findAll());
 
+        return"dashboard";
     }
 }

@@ -1,12 +1,15 @@
 package org.launchcode.DiveLog.models;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.sun.tools.javac.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
 import java.util.Date;
 
 @Entity
@@ -15,7 +18,7 @@ public class Dive {
     @Id
     @GeneratedValue
     private int id;
-    
+
     @NotNull
     private String fish;
 
@@ -94,7 +97,7 @@ public class Dive {
 
     public Dive(String fish, Date date, int time1, int time2, int psi1, int psi2, String depth, String visibility, int nitrogen1, int nitrogen2,
     int safteystopdur, int surfaceinterval, int surfacetemp, int airtemp, int bottomtemp, String divetype, String watertype, String booties, String full,
-                String shorty, String skin, String weight, String buddy, String notes){
+                String shorty, String skin, String weight, String buddy, String notes, int userId){
         this.fish = fish;
         this.date = date;
         this.time1 = time1;
@@ -121,6 +124,10 @@ public class Dive {
         this.notes = notes;
 
         }
+
+    public Dive() {
+
+    }
 
     public String getFish() {
         return fish;

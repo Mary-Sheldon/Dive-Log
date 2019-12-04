@@ -22,11 +22,11 @@
         <input class="form-control" th:field="*{password}" type="password" />
         <div class="error" th:errors="*{password}"></div>
     </div>
-    <div class="form-group">
+   <!-- <div class="form-group">
         <label th:for="verify">Verify Password</label>
         <input class="form-control" name="verify" id="verify" type="password" />
         <div class="error" th:text="${verifyError}"></div>
-    </div>
+    </div> -->
     <input type="submit" value="Dive In!" />
 </form>
 
@@ -44,6 +44,8 @@
         <input class="form-control" th:field="*{password}" type="password" />
         <div class="error" th:errors="*{password}"></div>
     </div>
+
+
 
     <input type="submit" value="Dive In!" />
 </form>
