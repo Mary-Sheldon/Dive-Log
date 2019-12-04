@@ -15,12 +15,9 @@ public class Dive {
     @Id
     @GeneratedValue
     private int id;
-
-
+    
     @NotNull
     private String fish;
-
-
 
     @NotNull
     private int time1;
@@ -71,8 +68,33 @@ public class Dive {
     @NotNull
     private String watertype;
 
+
+    @NotNull
+    private String booties;
+
+    @NotNull
+    private String full;
+
+    @NotNull
+    private String shorty;
+
+    @NotNull
+    private String skin;
+
+    @NotNull
+    private String weight;
+
+    @NotNull
+    private String buddy;
+
+    @NotNull
+    private  String notes;
+
+
+
     public Dive(String fish, Date date, int time1, int time2, int psi1, int psi2, String depth, String visibility, int nitrogen1, int nitrogen2,
-    int safteystopdur, int surfaceinterval, int surfacetemp, int airtemp, int bottomtemp, String divetype, String watertype){
+    int safteystopdur, int surfaceinterval, int surfacetemp, int airtemp, int bottomtemp, String divetype, String watertype, String booties, String full,
+                String shorty, String skin, String weight, String buddy, String notes){
         this.fish = fish;
         this.date = date;
         this.time1 = time1;
@@ -88,6 +110,15 @@ public class Dive {
         this.surfacetemp = surfacetemp;
         this.airtemp = airtemp;
         this.bottomtemp = bottomtemp;
+        this.divetype = divetype;
+        this.watertype = watertype;
+        this.booties = booties;
+        this.full = full;
+        this.shorty = shorty;
+        this.skin = skin;
+        this.weight = weight;
+        this.buddy = buddy;
+        this.notes = notes;
 
         }
 
@@ -221,4 +252,61 @@ public class Dive {
     public void setWatertype(String watertype) {
         this.watertype = watertype;
     }
+
+    public String getBooties() {
+        return booties;
+    }
+
+    public void setBooties(String booties) {
+        this.booties = booties;
+    }
+
+    public String getFull() {
+        return full;
+    }
+
+    public void setFull(String full) {
+        this.full = full;
+    }
+
+    public String getShorty() {
+        return shorty;
+    }
+
+    public void setShorty(String shorty) {
+        this.shorty = shorty;
+    }
+
+    public String getSkin() {
+        return skin;
+    }
+
+    public void setSkin(String skin) {
+        this.skin = skin;
+    }
+
+    public String getWeight() {
+        return weight;
+    }
+
+    public void setWeight(String weight) {
+        this.weight = weight;
+    }
+
+    public String getBuddy() {
+        return buddy;
+    }
+
+    public void setBuddy(String buddy) {
+        this.buddy = buddy;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+
 }
