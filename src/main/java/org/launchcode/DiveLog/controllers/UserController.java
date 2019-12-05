@@ -50,9 +50,7 @@ public class UserController {
 //        }
         userDao.save(user);
         return "redirect:/dashboard";
-
     }
-
     @RequestMapping(value = "/dashboard", method = RequestMethod.GET)
     public String displayDashboard(Model model){
         model.addAttribute("title", "Diver Dashboard");

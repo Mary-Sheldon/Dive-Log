@@ -17,7 +17,7 @@ import org.springframework.validation.Errors;
 
 import javax.validation.Valid;
 
-import static org.springframework.web.bind.annotation.RequestMethod.POST;
+import java.util.Date;
 
 @Controller
 @RequestMapping("")
@@ -32,19 +32,23 @@ public class DiveController {
     @RequestMapping(value="dive", method = RequestMethod.GET)
     public String displayAddDive(Model model) {
         model.addAttribute("title", "Add Dive");
-        model.addAttribute(new Dive());
-        model.addAttribute("dive", diveDao.findAll());
+        model.addAttribute("dive", new Dive());
+        model.addAttribute("dives", diveDao.findAll());
 
         return "add";
     }
-    @RequestMapping(value="dive", method = POST)
-    public String ProcessaddDive (@ModelAttribute @Valid Dive newDive, Errors errors,  Model model){
-     if (errors.hasErrors()){
-         model.addAttribute("title", "Add Dive");
-         return "add";
-     }
+    @RequestMapping(value="dive", method = RequestMethod.POST)
+    public String processAddDive (Model model,@ModelAttribute @Valid Dive newDive, Errors errors, String fish, Integer time1, Integer time2, String ate,
+                                  Integer psi1, Integer psi2, String depth, String visibility, Integer nitrogen1, Integer nitrogen2, Integer safteystopdur, Integer surfaceinterval, Integer surfacetemp, Integer airtemp, Integer bottomtemp,
+                                  String divetype, String watertype, String booties, String full, String shorty, String skin, String weight, String buddy, String notes){
+        model.addAttribute(newDive);
+//     if (errors.hasErrors()){
+//         model.addAttribute("title", "Add Dive");
+//         return "add";
+
     diveDao.save(newDive);
-        return "redirect:/dashboard";
+    return "redirect:/dashboard";
 }
+
 
 }

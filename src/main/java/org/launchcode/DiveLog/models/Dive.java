@@ -15,99 +15,115 @@ import java.util.Date;
 @Entity
 public class Dive {
 
+
+
     @Id
     @GeneratedValue
     private int id;
 
     @NotNull
+    @Size(min=1, max=20, message = "Name must be between 3 and 20 characters")
     private String fish;
 
     @NotNull
-    private int time1;
+    private Integer time1;
 
-    private Date date;
 
-    @NotNull
-    private int time2;
 
     @NotNull
-    private int psi1;
+    @Size(min=1, max=20, message= " enter the date")
+    private String ate;
 
     @NotNull
-    private int psi2;
+    private Integer time2;
 
     @NotNull
+    private Integer psi1;
+
+    @NotNull
+    private Integer psi2;
+
+    @NotNull
+    @Size(min=1, max=20, message = "Name must be between 3 and 20 characters")
     private String depth;
 
-
-
     @NotNull
+    @Size(min=1, max=20, message = "Name must be between 3 and 20 characters")
     private String visibility;
 
     @NotNull
-    private int nitrogn1;
+    private Integer nitrogen1;
 
     @NotNull
-    private int nitrogn2;
+    private Integer nitrogen2;
 
     @NotNull
-    private int safteystopdur;
+    private Integer safteystopdur;
 
     @NotNull
-    private int surfaceinterval;
+    private Integer surfaceinterval;
 
     @NotNull
-    private int surfacetemp;
+    private Integer surfacetemp;
 
     @NotNull
-    private int airtemp;
+    private Integer airtemp;
 
     @NotNull
-    private int bottomtemp;
+    private Integer bottomtemp;
 
     @NotNull
+    @Size(min=1, max=20, message = "Name must be between 3 and 20 characters")
     private String divetype;
 
     @NotNull
+    @Size(min=1, max=20, message = "Name must be between 3 and 20 characters")
     private String watertype;
 
 
     @NotNull
+    @Size(min=1, max=20, message = "Name must be between 3 and 20 characters")
     private String booties;
 
     @NotNull
+    @Size(min=1, max=20, message = "Name must be between 3 and 20 characters")
     private String full;
 
     @NotNull
+    @Size(min=1, max=20, message = "Name must be between 3 and 20 characters")
     private String shorty;
 
     @NotNull
+    @Size(min=1, max=20, message = "Name must be between 3 and 20 characters")
     private String skin;
 
     @NotNull
+    @Size(min=1, max=20, message = "Name must be between 3 and 20 characters")
     private String weight;
 
     @NotNull
+    @Size(min=1, max=20, message = "Name must be between 3 and 20 characters")
     private String buddy;
 
     @NotNull
+    @Size(min=1, max=20, message = "Name must be between 3 and 20 characters")
     private  String notes;
 
 
 
-    public Dive(String fish, Date date, int time1, int time2, int psi1, int psi2, String depth, String visibility, int nitrogen1, int nitrogen2,
-    int safteystopdur, int surfaceinterval, int surfacetemp, int airtemp, int bottomtemp, String divetype, String watertype, String booties, String full,
+    public Dive(String fish, String ate, Integer time1, Integer time2, Integer psi1, Integer psi2, String depth, String visibility, Integer nitrogen1, Integer nitrogen2,
+                Integer safteystopdur, Integer surfaceinterval, Integer surfacetemp, Integer airtemp, Integer bottomtemp, String divetype, String watertype, String booties, String full,
                 String shorty, String skin, String weight, String buddy, String notes, int userId){
         this.fish = fish;
-        this.date = date;
+        this.ate = ate;
         this.time1 = time1;
         this.time2 = time2;
         this.psi1 = psi1;
         this.psi2 = psi2;
         this.depth = depth;
         this.visibility = visibility;
-        this.nitrogn1 = nitrogen1;
-        this.nitrogn2 = nitrogen2;
+        this.nitrogen1 = nitrogen1;
+        this.nitrogen2 = nitrogen2;
         this.safteystopdur = safteystopdur;
         this.surfaceinterval = surfaceinterval;
         this.surfacetemp = surfacetemp;
@@ -136,20 +152,16 @@ public class Dive {
     public void setFish(String fish) {
         this.fish = fish;
     }
-    public Date getDate() {
-        return date;}
 
-   public void setDate(Date date) {
-        this.date = date;}
 
-    public int getTime1() {
+    public Integer getTime1() {
         return time1;
     }
 
     public void setTime1(int time1) {
         this.time1 = time1;
     }
-    public int getTime2() {
+    public Integer getTime2() {
         return time2;
     }
 
@@ -157,7 +169,7 @@ public class Dive {
         this.time2 = time2;
     }
 
-    public int getPsi1() {
+    public Integer getPsi1() {
         return psi1;
     }
 
@@ -165,7 +177,7 @@ public class Dive {
         this.psi1 = psi1;
     }
 
-    public int getPsi2() {
+    public Integer getPsi2() {
         return psi2;
     }
 
@@ -189,23 +201,23 @@ public class Dive {
         this.visibility = visibility;
     }
 
-    public int getNitrogn1() {
-        return nitrogn1;
+    public Integer getNitrogen1() {
+        return nitrogen1;
     }
 
-    public void setNitrogn1(int nitrogn1) {
-        this.nitrogn1 = nitrogn1;
+    public void setNitrogen1(int nitrogen1) {
+        this.nitrogen1 = nitrogen1;
     }
 
-    public int getNitrogn2() {
-        return nitrogn2;
+    public Integer getNitrogen2() {
+        return nitrogen2;
     }
 
-    public void setNitrogn2(int nitrogn2) {
-        this.nitrogn2 = nitrogn2;
+    public void setNitrogen2(int nitrogen2) {
+        this.nitrogen2 = nitrogen2;
     }
 
-    public int getSafteystopdur() {
+    public Integer getSafteystopdur() {
         return safteystopdur;
     }
 
@@ -213,7 +225,7 @@ public class Dive {
         this.safteystopdur = safteystopdur;
     }
 
-    public int getSurfaceinterval() {
+    public Integer getSurfaceinterval() {
         return surfaceinterval;
     }
 
@@ -221,7 +233,7 @@ public class Dive {
         this.surfaceinterval = surfaceinterval;
     }
 
-    public int getSurfacetemp() {
+    public Integer getSurfacetemp() {
         return surfacetemp;
     }
 
@@ -229,7 +241,7 @@ public class Dive {
         this.surfacetemp = surfacetemp;
     }
 
-    public int getAirtemp() {
+    public Integer getAirtemp() {
         return airtemp;
     }
 
@@ -237,7 +249,7 @@ public class Dive {
         this.airtemp = airtemp;
     }
 
-    public int getBottomtemp() {
+    public Integer getBottomtemp() {
         return bottomtemp;
     }
 
@@ -316,4 +328,11 @@ public class Dive {
         this.notes = notes;
     }
 
+    public String getAte() {
+        return ate;
+    }
+
+    public void setAte(String ate) {
+        this.ate = ate;
+    }
 }
