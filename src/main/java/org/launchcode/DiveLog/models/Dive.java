@@ -3,10 +3,7 @@ package org.launchcode.DiveLog.models;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.sun.tools.javac.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
@@ -15,7 +12,8 @@ import java.util.Date;
 @Entity
 public class Dive {
 
-
+    @ManyToOne
+    private User user;
 
     @Id
     @GeneratedValue
@@ -27,8 +25,6 @@ public class Dive {
 
     @NotNull
     private Integer time1;
-
-
 
     @NotNull
     @Size(min=1, max=20, message= " enter the date")
@@ -113,7 +109,7 @@ public class Dive {
 
     public Dive(String fish, String ate, Integer time1, Integer time2, Integer psi1, Integer psi2, String depth, String visibility, Integer nitrogen1, Integer nitrogen2,
                 Integer safteystopdur, Integer surfaceinterval, Integer surfacetemp, Integer airtemp, Integer bottomtemp, String divetype, String watertype, String booties, String full,
-                String shorty, String skin, String weight, String buddy, String notes, int userId){
+                String shorty, String skin, String weight, String buddy, String notes){
         this.fish = fish;
         this.ate = ate;
         this.time1 = time1;
@@ -335,4 +331,6 @@ public class Dive {
     public void setAte(String ate) {
         this.ate = ate;
     }
+
+
 }

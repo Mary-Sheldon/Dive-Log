@@ -1,11 +1,10 @@
 package org.launchcode.DiveLog.models;
 
-import com.sun.tools.javac.util.List;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class User {
@@ -27,14 +26,18 @@ public class User {
     @Size(min=5, max=10, message = "Password must be between 5 and 10 characters")
     private String password;
 
+    @OneToMany
+    @JoinColumn(name = "user_id")
+    private List<Dive> dives = new ArrayList<>();
+
+    public User() {}
 
     public User(String username, String email, String password){
         this.username = username;
         this.email = email;
         this.password = password;
-        this.id = id;
     }
-    public User() {}
+
 
     public String getUsername() {
         return username;
@@ -62,5 +65,9 @@ public class User {
 
     public int getId(){
         return id;
+    }
+
+    public List<Dive> getDives() {
+        return dives;
     }
 }

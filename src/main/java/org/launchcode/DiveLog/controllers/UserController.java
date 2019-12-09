@@ -1,6 +1,7 @@
 package org.launchcode.DiveLog.controllers;
 
 import org.launchcode.DiveLog.models.User;
+import org.launchcode.DiveLog.models.data.DiveDao;
 import org.launchcode.DiveLog.models.data.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,6 +21,9 @@ public class UserController {
 
     @Autowired
     private UserDao userDao;
+
+    @Autowired
+    private DiveDao diveDao;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(Model model){
