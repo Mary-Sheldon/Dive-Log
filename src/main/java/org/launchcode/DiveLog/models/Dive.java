@@ -20,14 +20,14 @@ public class Dive {
     private int id;
 
     @NotNull
-    @Size(min=1, max=20, message = "Name must be between 3 and 20 characters")
+    @Size(min=1, max=20)
     private String fish;
 
     @NotNull
     private Integer time1;
 
     @NotNull
-    @Size(min=1, max=20, message= " enter the date")
+    @Size(min=10, max=10, message= "Enter the date MM/DD/YYYY")
     private String ate;
 
     @NotNull
@@ -40,11 +40,11 @@ public class Dive {
     private Integer psi2;
 
     @NotNull
-    @Size(min=1, max=20, message = "Name must be between 3 and 20 characters")
+    @Size(min=1, max=5, message = "Please enter depth")
     private String depth;
 
     @NotNull
-    @Size(min=1, max=20, message = "Name must be between 3 and 20 characters")
+    @Size(min=1, max=20, message = "Please enter visibility")
     private String visibility;
 
     @NotNull
@@ -69,32 +69,32 @@ public class Dive {
     private Integer bottomtemp;
 
     @NotNull
-    @Size(min=1, max=20, message = "Name must be between 3 and 20 characters")
+    @Size(min=1, max=20)
     private String divetype;
 
     @NotNull
-    @Size(min=1, max=20, message = "Name must be between 3 and 20 characters")
+    @Size(min=1, max=20)
     private String watertype;
 
 
     @NotNull
-    @Size(min=1, max=20, message = "Name must be between 3 and 20 characters")
+    @Size(min=1, max=20)
     private String booties;
 
     @NotNull
-    @Size(min=1, max=20, message = "Name must be between 3 and 20 characters")
+    @Size(min=1, max=20)
     private String full;
 
     @NotNull
-    @Size(min=1, max=20, message = "Name must be between 3 and 20 characters")
+    @Size(min=1, max=20)
     private String shorty;
 
     @NotNull
-    @Size(min=1, max=20, message = "Name must be between 3 and 20 characters")
+    @Size(min=1, max=20)
     private String skin;
 
     @NotNull
-    @Size(min=1, max=20, message = "Name must be between 3 and 20 characters")
+    @Size(min=1, max=20)
     private String weight;
 
     @NotNull
@@ -102,7 +102,7 @@ public class Dive {
     private String buddy;
 
     @NotNull
-    @Size(min=1, max=20, message = "Name must be between 3 and 20 characters")
+    @Size(min=1, max=1000, message = "Notes up to 1,000 characters")
     private  String notes;
 
 

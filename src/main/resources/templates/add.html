@@ -7,7 +7,7 @@
 
 <form method="post" th:object="${dive}" style="width:600px;">
     <div class="form-group">
-        <label th:for="ate">Date</label>
+        <label th:for="ate">Date MM/DD/YYYY include slashes</label>
         <input class="form-control" th:field="*{ate}"/>
         <div class="error" th:errors="*{ate}"></div>
 
@@ -159,7 +159,7 @@
     </div>
     <div class="form-group">
         <label th:for="notes">NOTES</label>
-        <textarea rows="20" cols="80" th:field="*{notes}"></textarea>
+        <textarea rows="10" cols="80" th:field="*{notes}"></textarea>
 
         <div class="error" th:errors="*{notes}"></div>
     </div>
