@@ -42,14 +42,17 @@ public class DiveController {
             return "add";
         }
             diveDao.save(newDive);
-            return "redirect:dive/" + newDive.getId();
+            return "redirect:dive/single" + newDive.getId();
         }
 
-    @RequestMapping(value="dive/{diveId}", method = RequestMethod.GET)
+    @RequestMapping(value="dive/single/{diveId}", method = RequestMethod.GET)
     public String displaySingleDive(Model model, @PathVariable int diveId) {
-     Dive dive = diveDao.findById();
+     Dive dive = diveDao.findById(diveId);
+     model.addAttribute(dive);
 
-        return "add";
+     model.addAttribute("title","Single Dive");
+
+        return "single";
     }
 
 }

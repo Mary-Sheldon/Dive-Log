@@ -9,4 +9,5 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 @Transactional
 public interface DiveDao extends CrudRepository <Dive, Integer>{
+    Dive findById(int id);
 }

@@ -6,11 +6,11 @@
 </head>
 
 <body class="container">
-<p th:unless="${dives} and ${dives.size()}">No Dives to Display</p>
+<!--<p th:unless="${dives} and ${dives.size()}">No Dives to Display</p>-->
 
 
 <table class="table">
-
+<!--    <input type="hidden" th:value = "*{id}"  />-->
     <tr>
         <th>Fish</th>
         <th>Date</th>
@@ -19,7 +19,7 @@
 
     </tr>
 
-    <tr th:each="dive : ${dives}">
+    <tr >
         <td th:text="${dive.fish}"></td>
         <td th:text="${dive.ate}"></td>
         <td th:text="${dive.time1}"></td>
@@ -33,7 +33,7 @@
         <th>Visibility</th>
     </tr>
 
-    <tr th:each="dive : ${dives}">
+    <tr >
         <td th:text="${dive.psi1}"></td>
         <td th:text="${dive.psi2}"></td>
         <td th:text="${dive.depth}"></td>
@@ -47,7 +47,7 @@
         <th>Surface Interval</th>
     </tr>
 
-    <tr th:each="dive : ${dives}">
+    <tr>
         <td th:text="${dive.nitrogen1}"></td>
         <td th:text="${dive.nitrogen2}"></td>
         <td th:text="${dive.safteystopdur}"></td>
@@ -60,7 +60,7 @@
         <th>Bottom Temperature</th>
     </tr>
 
-    <tr th:each="dive : ${dives}">
+    <tr>
         <td th:text="${dive.surfacetemp}"></td>
         <td th:text="${dive.airtemp}"></td>
         <td th:text="${dive.bottomtemp}"></td>
@@ -71,7 +71,7 @@
         <th>Water Type</th>
     </tr>
 
-    <tr th:each="dive : ${dives}">
+    <tr >
         <td th:text="${dive.divetype}"></td>
         <td th:text="${dive.watertype}"></td>
     </tr>
@@ -83,7 +83,7 @@
         <th>Skin</th>
     </tr>
 
-    <tr th:each="dive : ${dives}">
+    <tr >
         <td th:text="${dive.booties}"></td>
         <td th:text="${dive.full}"></td>
         <td th:text="${dive.shorty}"></td>
@@ -96,7 +96,7 @@
         <th>Notes</th>
     </tr>
 
-    <tr th:each="dive : ${dives}">
+    <tr >
         <td th:text="${dive.weight}"></td>
         <td th:text="${dive.buddy}"></td>
         <td th:text="${dive.notes}"></td>
