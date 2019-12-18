@@ -7,10 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.Optional;
@@ -55,6 +52,17 @@ public class UserController {
         userDao.save(user);
         return "redirect:/dashboard";
     }
+
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String login(Model model){
+        model.addAttribute("title", "Login");
+        model.addAttribute("user", new User());
+
+        return"login";
+    }
+
+
+
     @RequestMapping(value = "/dashboard", method = RequestMethod.GET)
     public String displayDashboard(Model model){
         model.addAttribute("title", "Diver Dashboard");
@@ -62,4 +70,16 @@ public class UserController {
 
         return"dashboard";
     }
+
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String addUser(Model model, @ModelAttribute @Valid User user1,
+                          Errors errors, @RequestParam String email) {
+     User user = userDao.findByUsername(email);
+
+
+        if (user != null) {
+        return "redirect:/dashboard";
+    }
+        return"dashboard";
+}
 }

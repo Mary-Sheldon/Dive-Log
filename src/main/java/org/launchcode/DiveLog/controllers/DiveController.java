@@ -8,10 +8,7 @@ import org.launchcode.DiveLog.models.data.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.validation.Errors;
 
 
@@ -38,17 +35,21 @@ public class DiveController {
         return "add";
     }
     @RequestMapping(value="dive", method = RequestMethod.POST)
-    public String processAddDive (Model model,@ModelAttribute @Valid Dive newDive, Errors errors, String fish, Integer time1, Integer time2, String ate,
-                                  Integer psi1, Integer psi2, String depth, String visibility, Integer nitrogen1, Integer nitrogen2, Integer safteystopdur, Integer surfaceinterval, Integer surfacetemp, Integer airtemp, Integer bottomtemp,
-                                  String divetype, String watertype, String booties, String full, String shorty, String skin, String weight, String buddy, String notes) {
+    public String processAddDive (Model model,@ModelAttribute @Valid Dive newDive, Errors errors) {
         model.addAttribute(newDive);
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add Dive");
             return "add";
         }
             diveDao.save(newDive);
-            return "redirect:/dashboard";
+            return "redirect:dive/" + newDive.getId();
         }
 
+    @RequestMapping(value="dive/{diveId}", method = RequestMethod.GET)
+    public String displaySingleDive(Model model, @PathVariable int diveId) {
+     Dive dive = diveDao.findById();
+
+        return "add";
+    }
 
 }

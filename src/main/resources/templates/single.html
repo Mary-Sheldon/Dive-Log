@@ -4,7 +4,104 @@
     <meta charset="UTF-8"/>
     <title></title>
 </head>
-<body>
+
+<body class="container">
+<p th:unless="${dives} and ${dives.size()}">No Dives to Display</p>
+
+
+<table class="table">
+
+    <tr>
+        <th>Fish</th>
+        <th>Date</th>
+        <th>Time in</th>
+        <th>Time out</th>
+
+    </tr>
+
+    <tr th:each="dive : ${dives}">
+        <td th:text="${dive.fish}"></td>
+        <td th:text="${dive.ate}"></td>
+        <td th:text="${dive.time1}"></td>
+        <td th:text="${dive.time2}"></td>
+    </tr>
+
+    <tr>
+        <th>PSI in</th>
+        <th>PSI out</th>
+        <th>Depth</th>
+        <th>Visibility</th>
+    </tr>
+
+    <tr th:each="dive : ${dives}">
+        <td th:text="${dive.psi1}"></td>
+        <td th:text="${dive.psi2}"></td>
+        <td th:text="${dive.depth}"></td>
+        <td th:text="${dive.visibility}"></td>
+    </tr>
+
+    <tr>
+        <th>Nitrogen In</th>
+        <th>Nitrogen Out</th>
+        <th>Saftey Stop</th>
+        <th>Surface Interval</th>
+    </tr>
+
+    <tr th:each="dive : ${dives}">
+        <td th:text="${dive.nitrogen1}"></td>
+        <td th:text="${dive.nitrogen2}"></td>
+        <td th:text="${dive.safteystopdur}"></td>
+        <td th:text="${dive.surfaceinterval}"></td>
+    </tr>
+
+    <tr>
+        <th>Surface Temperature</th>
+        <th>Air Temperature</th>
+        <th>Bottom Temperature</th>
+    </tr>
+
+    <tr th:each="dive : ${dives}">
+        <td th:text="${dive.surfacetemp}"></td>
+        <td th:text="${dive.airtemp}"></td>
+        <td th:text="${dive.bottomtemp}"></td>
+    </tr>
+
+    <tr>
+        <th>Dive Type</th>
+        <th>Water Type</th>
+    </tr>
+
+    <tr th:each="dive : ${dives}">
+        <td th:text="${dive.divetype}"></td>
+        <td th:text="${dive.watertype}"></td>
+    </tr>
+
+    <tr>
+        <th>Booties</th>
+        <th>Full</th>
+        <th>Shorty</th>
+        <th>Skin</th>
+    </tr>
+
+    <tr th:each="dive : ${dives}">
+        <td th:text="${dive.booties}"></td>
+        <td th:text="${dive.full}"></td>
+        <td th:text="${dive.shorty}"></td>
+        <td th:text="${dive.skin}"></td>
+    </tr>
+
+    <tr>
+        <th>Weight</th>
+        <th>Buddy</th>
+        <th>Notes</th>
+    </tr>
+
+    <tr th:each="dive : ${dives}">
+        <td th:text="${dive.weight}"></td>
+        <td th:text="${dive.buddy}"></td>
+        <td th:text="${dive.notes}"></td>
+    </tr>
+</table>
 
 </body>
 </html>

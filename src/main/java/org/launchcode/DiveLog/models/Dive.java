@@ -15,6 +15,10 @@ public class Dive {
     @ManyToOne
     private User user;
 
+    public int getId() {
+        return id;
+    }
+
     @Id
     @GeneratedValue
     private int id;
